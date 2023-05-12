@@ -10,8 +10,11 @@
 
  <body>
     <header>
-        <nav class="navbar">
+        <nav class="navbar px-3">
             <div class="container-fluid">
+                <div class="navbar-brand mx-3">
+                    <img  src="assets/img/shop.png"/>
+                </div>
             <ul class="navbar-nav mx-3 my-2">
                 <li class="nav-item">
                     <a class="nav-link" href="./home.html">Home</a>
@@ -26,37 +29,48 @@
         </nav>
     </header>
     <main>
-        <fieldset class="m-3">
-            <legend>Inserisci dati prodotto</legend>
+        <fieldset class="m-3 card shadow py-2">
+            <legend class="mx-3">Inserisci dati prodotto</legend>
             <form>
-                <div class="form-group">
+                <div class="form-group my-2">
                 <label class="form-label" for="nome">Nome prodotto:</label>
+                
+               <!-- <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00ff00" class="bi bi-check-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                  </svg></div>
+                -->
                 </br>
-                <input class="form-text w-100" type="text" id="nome"/>
+                <input class="form-text w-100" type="text" id="nome" required/>
+                <span></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                 <label class="form-label" for="brand">Marca prodotto:</label>
             </br>
-                <input class="form-text w-100" type="text" id="brand"/>
+                <input class="form-text w-100" type="text" id="brand" required/>
+                <span></span>
            </div>
-           <div class="form-group">
+           <div class="form-group my-2">
                 <label class="form-label" for="price">Prezzo prodotto:</label>
             </br>
-                <input class="form-text w-100" type="text" id="price"/>
+                <input class="form-text w-100" type="text" id="price" required/>
+                <span></span>
             </div>
-            <div class="form-group">
+            <div class="form-group my-2">
                 <label class="form-label" for="img">Url immagine prodotto:</label>
             </br>
-                <input class="form-text w-100" type="text" id="img"/>
+                <input class="form-text w-100" type="text" id="img" required/>
+                <span></span>
             </div>
         </br>
-        <div class="form-group">
+        <div class="form-group my-2">
                 <label class="form-label" for="description">Descrizione prodotto:</label>
         </br>
-                <textarea class="form-text w-100" id="description" rows="4"></textarea>
+                <textarea class="form-text w-100" id="description" rows="4" required></textarea>
+                <span></span>
             </div>
             <div class="form-group">
-                <input id="reset" type="button" value="Reset"/>
+                <input class="px-2 py-1 my-2"id="reset" type="button" value="Reset"/>
             </div>
             </form>
         </fieldset>

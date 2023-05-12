@@ -35,3 +35,78 @@ form input[type="button"]{
     border-radius: 2em;
     border: none;
 }
+
+form input[type="text"]:valid{
+    border-color: lightgreen;
+}
+
+form textarea:valid{
+    border-color: lightgreen;
+}
+
+form input[type="text"]:invalid{
+    border-color: red;
+}
+
+form textarea:invalid{
+    border-color: red;
+}
+
+form label,.icon{
+    display: inline-block;
+}
+
+
+input:invalid + span::before {
+    content: "✖";
+    color: red;
+  }
+  
+  input:valid + span::before {
+    content: "✓";
+    color: green;
+  }
+
+  form input + span{
+    position: relative;
+  
+  }
+
+  form input + span::before {
+    position: absolute;
+    right: -20px;
+    top: -3px;
+    
+  }
+
+  textarea:invalid + span::before {
+    content: "✖";
+    color: red;
+  }
+  
+  textarea:valid + span::before {
+    content: "✓";
+    color: green;
+  }
+
+  form textarea + span{
+    position: relative;
+  
+  }
+
+  form textarea + span::before {
+    position: absolute;
+    right: -20px;
+    top: -3px;
+    
+  }
+
+  form{
+    padding-right: 30px;
+    padding-left: 15px;
+  }
+
+  header img{
+    height: 60px;
+    width: auto;
+  }
