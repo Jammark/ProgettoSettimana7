@@ -9,7 +9,11 @@ window.onload = () => {
 
         let buttonModify = document.getElementById('modifica');
         buttonModify.onclick = () => {
+            if(isValidForm()){
             modifyProduct();
+        }else{
+            alert('controllare che tutti i campi siano popolati');
+        }
         };
 
         let buttonDelete = document.getElementById('cancella');
@@ -25,9 +29,22 @@ window.onload = () => {
 
         let buttonSave = document.getElementById('salva');
         buttonSave.onclick = () => {
+            if(isValidForm()){
             saveNewProduct();
+            }else{
+                alert('controllare che tutti i campi siano popolati');
+            }
         };
     }
+
+    let reset = document.getElementById('reset');
+    reset.onclick = () => {
+        document.getElementById('nome').value = '';
+        document.getElementById('brand').value = '';
+        document.getElementById('price').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('img').value = '';
+    };
 };
 
 function populateFields(item){
@@ -130,4 +147,12 @@ function cancella(){
         }
     })
     .catch(error => console.error(error));
+}
+
+function isValidForm(){
+    return  document.getElementById('nome').value != '' &&
+    document.getElementById('brand').value != '' &&
+    document.getElementById('price').value != '' &&
+    document.getElementById('img').value != '' &&
+    document.getElementById('description').value  != '' ;
 }
