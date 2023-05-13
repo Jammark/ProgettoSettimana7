@@ -71,7 +71,7 @@ function domElement(product){
     let col = document.createElement('div');
     col.classList = 'col-12 col-md-4 col-lg-3';
     let card = document.createElement('div');
-    card.classList = 'card shadow-lg';
+    card.classList = 'card shadow-lg h-100';
     col.appendChild(card);
     let img = document.createElement('img');
     img.src = product.imageUrl;

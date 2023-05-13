@@ -18,11 +18,16 @@ body{
 }
 
 
-#btnsTop button{
+#btnsTop button.op{
     background-color: white;
     color: chocolate;
     border-radius: 2em;
     border: none;
+}
+
+ .navbar-toggler{
+    color:white;
+    --bs-navbar-toggler-border-color: white;
 }
 
 #btnsTop .hide{
@@ -136,4 +141,6 @@ input:invalid + span::before {
   .modal-header{
     --bs-modal-header-border-color: chocolate;
   }
+
+  
  
