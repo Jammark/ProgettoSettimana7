@@ -10,23 +10,33 @@
 
  <body>
     <header>
-        <nav class="navbar px-3">
+        <nav class="navbar px-3 navbar-expand-md">
             <div class="container-fluid">
                 <div class="navbar-brand mx-3">
-                    <img  src="assets/img/shop.png"/>
+                    <p>
+                        <img  class="emoji" darggable="false" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f6cd.svg"/>
+                            <strong><em>CRUD</em></strong>
+                            <strong>AZON</strong>
+                    </p>
                 </div>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav mx-3 my-2">
                 <li class="nav-item">
                     <a class="nav-link" href="./home.html">Home</a>
                 </li>
             </ul>
+            </div>
             <div id="btnsTop" class="d-flex">
-                <button id="cancella" class="mx-1 px-2">Cancella</button>
+                <button id="cancella" class="mx-1 px-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Cancella</button>
                 <button id="modifica" class="mx-1 px-2">Modifica</button>
                 <button id="salva" class="mx-1 px-2">Salva</button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
                 </div>
         </div>
         </nav>
+       
     </header>
     <main>
         <fieldset class="m-3 card shadow py-2">
@@ -70,10 +80,73 @@
                 <span></span>
             </div>
             <div class="form-group">
-                <input class="px-2 py-1 my-2"id="reset" type="button" value="Reset"/>
+                <button class="px-4 py-2 my-2"id="reset" type="button" value="Reset" data-bs-toggle="modal" data-bs-target="#exampleModal">Reset</button>
             </div>
             </form>
         </fieldset>
+
+        <div class="container">
+ <!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Attenzione!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <p>Sicuro di voler procedere con l'operazione?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+          <button id="confirm" type="button" class="btn" data-bs-dismiss="modal">Conferma</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+
+      <div class="container">
+        <!-- Modal -->
+       <div class="modal" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Errore!</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                <p>Qualcosa è andato storto, contattare l'amministrazione.</p>
+                <p id="message"></p>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+               </div>
+             </div>
+           </div>
+         </div>
+             </div>
+
+             <div class="container">
+                <!-- Modal -->
+               <div class="modal" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog">
+                     <div class="modal-content">
+                       <div class="modal-header">
+                         <h5 class="modal-title" id="exampleModalLabel">Attenzione!</h5>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                       </div>
+                       <div class="modal-body">
+                        <p>Controllare che tutti i campi siano popolati.</p>
+                     
+                       </div>
+                       <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                     </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

@@ -29,11 +29,12 @@ body{
     display: none;
 }
 
-form input[type="button"]{
+form button{
     background-color: chocolate;
     color: white;
     border-radius: 2em;
     border: none;
+   
 }
 
 form input[type="text"]:valid{
@@ -110,3 +111,29 @@ input:invalid + span::before {
     height: 60px;
     width: auto;
   }
+
+  .progress{
+    --bs-progress-bar-bg: #00ff00 !important;
+  }
+
+  .card{
+    --bs-card-border-color: chocolate !important;
+  }
+
+  #confirm{
+    background-color: chocolate;
+    color: white;
+  }
+  
+  .modal-content{
+    --bs-modal-border-color: chocolate;
+  }
+
+  .modal-footer{
+    --bs-modal-footer-border-color: chocolate;
+  }
+
+  .modal-header{
+    --bs-modal-header-border-color: chocolate;
+  }
+ 

@@ -4,7 +4,14 @@ const TOKEN_KEY = 'token';
 const productsUrl = 'https://striveschool-api.herokuapp.com/api/product/';
 
 
+var progProcess;
+
 window.onload = () => {
+
+    this.progProcess = setInterval(() => {
+        incrementBar();
+    }, 50);
+
         fetch(loginUrl, {
             method: "POST",
             body: JSON.stringify({
@@ -17,10 +24,15 @@ window.onload = () => {
         })
         .then(response => response.json())
         .then(({access_token}) => {
+            //throw new Error('errore');
             sessionStorage.setItem(TOKEN_KEY, access_token);
-            fetchProducts();
+            setTimeout(() => fetchProducts(), 1000);
+            
             })
-         .catch(error => console.error(error));
+         .catch(error => {
+            showModal('Errore di autenticazione');
+            console.error(error);
+         });
 
             document.getElementById('new').onclick = () => {
                 sessionStorage.removeItem('prod');
@@ -37,14 +49,22 @@ function fetchProducts(){
         })
         .then(response => response.json())
         .then(products => {
+
+            clearInterval(this.progProcess);
+            this.progProcess = setInterval(() => incrementBar(), 1);
+
             console.log('Products');
             console.table(products);
             products.forEach(element => {
                 let domEl = domElement(element);
                 document.getElementById('list').appendChild(domEl);
             });
+
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            showModal('Errore caricamento prodotti.');
+            console.error(error)
+        });
 }
 
 function domElement(product){
@@ -109,4 +129,25 @@ function domElement(product){
         window.location = './back-office.html';
     } ;
     return col;
+}
+
+function incrementBar(){
+    let progressBar = document.getElementsByClassName('progress-bar')[0];
+    let prog = Number(progressBar.getAttribute('aria-valuenow'));
+    if(prog < 100){
+        prog++;
+        progressBar.setAttribute('aria-valuenow', String(prog));
+        progressBar.style = `width:${prog}%`;
+    }else{
+     //   document.getElementsByClassName('progress')[0].style = 'display:none';
+        setTimeout(()=>document.getElementsByClassName('progress')[0].style = 'display:none', 800);
+        clearInterval(this.progProcess);
+       
+    }
+}
+
+function showModal(message){
+    document.getElementById('message').innerText = message;
+    var myModal = new bootstrap.Modal(document.getElementById('modal'));
+    myModal.show();
 }

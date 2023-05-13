@@ -12,13 +12,14 @@ window.onload = () => {
             if(isValidForm()){
             modifyProduct();
         }else{
-            alert('controllare che tutti i campi siano popolati');
+            showModalForm();
         }
         };
 
         let buttonDelete = document.getElementById('cancella');
         buttonDelete.onclick = () => {
-            cancella();
+            document.getElementById('confirm').onclick = () => cancella();
+            
         };
 
     }else{
@@ -32,18 +33,20 @@ window.onload = () => {
             if(isValidForm()){
             saveNewProduct();
             }else{
-                alert('controllare che tutti i campi siano popolati');
+                showModalForm();
             }
         };
     }
 
     let reset = document.getElementById('reset');
     reset.onclick = () => {
+        document.getElementById('confirm').onclick = () => {
         document.getElementById('nome').value = '';
         document.getElementById('brand').value = '';
         document.getElementById('price').value = '';
         document.getElementById('description').value = '';
         document.getElementById('img').value = '';
+        };
     };
 };
 
@@ -93,10 +96,13 @@ function saveNewProduct(){
         if(response.ok){
             window.location = './home.html';
         }else{
-            alert('Errore salvataggio prodotto');
+            showModal('Errore salvataggio prodotto');
         }
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+        showModal('Errore salvataggio prodotto');
+        console.error(error);
+    });
 }
 
 function modifyProduct(){
@@ -123,10 +129,13 @@ function modifyProduct(){
         if(response.ok){
             window.location = './home.html';
         }else{
-            alert('Errore salvataggio prodotto');
+            showModal('Errore salvataggio prodotto');
         }
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+        showModal('Errore salvataggio prodotto');
+        console.error(error);
+    });
 }
 
 function cancella(){
@@ -143,10 +152,13 @@ function cancella(){
         if(response.ok){
             window.location = './home.html';
         }else{
-            alert('Errore cancellazione prodotto');
+            showModal('Errore cancellazione prodotto');
         }
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+        showModal('Errore cancellazione prodotto.');
+        console.error(error);
+    });
 }
 
 function isValidForm(){
@@ -155,4 +167,16 @@ function isValidForm(){
     document.getElementById('price').value != '' &&
     document.getElementById('img').value != '' &&
     document.getElementById('description').value  != '' ;
+}
+
+function showModal(message){
+    document.getElementById('message').innerText = message;
+    var myModal = new bootstrap.Modal(document.getElementById('modal'));
+    myModal.show();
+    
+}
+
+function showModalForm(){
+    var myModal = new bootstrap.Modal(document.getElementById('modalForm'));
+    myModal.show();
 }

@@ -15,12 +15,16 @@ window.onload = () => {
         })
         .then(response => response.json())
         .then(item => {
+           
             domElement(item);
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            showModal('Errore caricamento prodotto.');
+            console.error(error)
+        });
       
     }else{
-        alert('Errore caricamento prodotto');
+        showModal('Errore caricamento prodotto');
     }
 };
 
@@ -49,4 +53,10 @@ function domElement(product){
 
    
     
+}
+
+function showModal(message){
+    document.getElementById('message').innerText = message;
+    var myModal = new bootstrap.Modal(document.getElementById('modal'));
+    myModal.show();
 }
