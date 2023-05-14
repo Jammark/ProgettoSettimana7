@@ -31,7 +31,7 @@ body{
 }
 
 #btnsTop .hide{
-    display: none;
+    display: none !important;
 }
 
 form button{
@@ -119,8 +119,24 @@ input:invalid + span::before {
 
   .progress{
     --bs-progress-bar-bg: #00ff00 !important;
-  }
+    box-shadow: 0px 0px 4px 4px rgba(0, 255, 0, 0.4);
+ }
 
+ .nav-link strong{
+    padding-left: 3px;
+ }
+
+ form button strong{
+    padding-left: 3px;
+ }
+
+ header button strong{
+    padding-left: 3px;
+ }
+
+ 
+
+  
   .card{
     --bs-card-border-color: chocolate !important;
   }
